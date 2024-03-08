@@ -37,7 +37,10 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 ### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
 
 
-![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
+![model4](https://github.com/varundevraj212221080086/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/161024553/677951bd-233d-457a-8f7b-ee49cff0a28d)
+
+![circuit4](https://github.com/varundevraj212221080086/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/161024553/afca00ea-9fe8-4fff-a2d5-4b7c9e1e02b6)
+
 
 
 
@@ -55,8 +58,73 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+int echopin=6;
 
+int trigpin=7;
 
+int red=8;
+
+int green=9;
+
+long duration;
+
+float distance;
+
+void setup()
+
+{
+
+pinMode(echopin,INPUT);
+
+pinMode(trigpin,OUTPUT);
+
+pinMode(red,OUTPUT);
+
+pinMode(green,OUTPUT);
+
+Serial.begin(9600);
+
+}
+
+void loop()
+
+{
+
+digitalWrite(trigpin,LOW);
+
+delay(10);
+
+digitalWrite(trigpin,HIGH);
+
+delay(10);
+
+digitalWrite(trigpin,LOW);
+
+duration=pulseIn(echopin,HIGH);
+
+distance=duration*0.034/2;
+
+Serial.print("distance=");
+
+Serial.print(distance);
+
+Serial.printIn("cms")
+
+if(distance>50)
+
+{
+
+digitalWrite(green,HIGH);
+
+delay(500); 
+
+digitalWrite(green,LOW);
+
+delay(500); 
+
+}
+
+}  
 
 
 
@@ -69,14 +137,20 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 			
 			
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
+![table4](https://github.com/varundevraj212221080086/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/161024553/e81066e5-bbf7-4b5f-852a-b1a4f6472969)
+
+![chart4](https://github.com/varundevraj212221080086/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/161024553/6bdf61d4-44bb-473f-bbc8-60124487c32f)
+
 
 			
 			
 			
 			
 			
-			Average error = sum/ number of readings 
+    Average error = sum/ number of readings 
+   1. 0.12+0.13+0.41+0.65+0.68/5 = 0.398
+
+
  
 
 
@@ -88,6 +162,6 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### RESULTS
 
-
+hence the interface of an ultrasonic pair and measurement of  the distance in centimeters , calculation of the error was found
 
  
